@@ -4,29 +4,23 @@
 
 should install libraries
 
-pip install pandas
-pip install numpy
-pip install matplotlib
-pip install scikit
-pip install scikit-image
-pip install IPython
-pip install tensorflow
+- pip install pandas
+
+- pip install numpy
+- pip install matplotlib
+- pip install scikit
+- pip install scikit-image
+- pip install IPython
+- pip install tensorflow
 
 
 
-And use it like following:
+And show download the file image.tar and the .mat file that distinguishes between test and training sets.
 
-```python
-import ml_preprocessing
+Use train_generator, valid_generator to train the model and use test_generator to test the model.
 
-ml_preprocessing.model.fit(
-    ml_preprocessing.train_generator,
-    epochs = 30,
-    steps_per_epoch =ml_preprocessing.nb_train_samples // ml_preprocessing.batch_size,
-    validation_data =ml_preprocessing.valid_generator,
-    validation_steps =ml_preprocessing.nb_valid_samples // ml_preprocessing.batch_size,
-    verbose = 2,
-    callbacks =ml_preprocessing.callbacks,
-    shuffle = True
-)
-```
+Have commented the steps of data preprocessing, and I do the simple train, the accuracy is 55%. 
+
+You should optimize it.
+
+Any question can ask by what's app.
