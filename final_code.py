@@ -21,7 +21,8 @@ from keras.applications.inception_v3 import InceptionV3, preprocess_input
 from keras.utils.np_utils import to_categorical
 from keras import layers, models
 from keras.callbacks import ModelCheckpoint, EarlyStopping, CSVLogger, ReduceLROnPlateau
-
+from sklearn.metrics import confusion_matrix
+from sklearn.metrics import classification_report
 
 images_path = "../images.tar"
 
@@ -207,3 +208,11 @@ test_accuracy = 100*np.sum(pred == np.argmax(test_labels, axis=1))/len(pred)
 print('Test accuracy: %.4f%%' % test_accuracy)
 
 score = model.evaluate(test_generator, verbose=2)
+test_targets = np.argmax(test_labels, axis=1)
+
+# print the confusion matrix and classification report to evaluate the model
+cm=confusion_matrix(test_targets, pred)
+print(cm)
+
+
+print(classification_report(test_targets, pred))
